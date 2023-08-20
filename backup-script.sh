@@ -37,3 +37,7 @@ case $COMPRESSION_ALGORITHM in
     exit 1
     ;;
 esac
+
+# Perform the backup
+tar -c${tar_option}f - "$DIRECTORY_TO_BACKUP" 2>> $ERROR_LOG | openssl enc -aes-256-cbc -salt -pass pass:$PASSWORD -out "$OUTPUT_FILE_NAME" 2>> $ERROR_LOG
+
