@@ -41,3 +41,4 @@ esac
 # Perform the backup
 tar -c${tar_option}f - "$DIRECTORY_TO_BACKUP" 2>> $ERROR_LOG | openssl enc -aes-256-cbc -salt -pass pass:$PASSWORD -out "$OUTPUT_FILE_NAME" 2>> $ERROR_LOG
 
+echo "Done! Let's hope that everything is fine :)"
